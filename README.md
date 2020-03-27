@@ -2,7 +2,7 @@
 
 **效果图如下:**
 
-![avatar](/public/static/images/view.gif)
+![avatar](http://q7v4u7f98.bkt.clouddn.com/ProjectsView/images/view.gif?e=1585333621&token=dFBLp0OyocKL_GCDqednYgngoNCSBGo0ubPJzPME:zL3cVsNSikjzLovWK7uINuyMKoU=)
 
 > 运行环境要求PHP7.1+。
 
@@ -34,7 +34,7 @@
                     │   
                     └───Projects3
     ```
-![avatar](/public/static/images/folder.png)
+![avatar](http://q7v4u7f98.bkt.clouddn.com/ProjectsView/images/folder.png)
 
 + 配置nginx.conf如下：
 
@@ -79,3 +79,4 @@
         include fastcgi_params;
     }
     ```
+

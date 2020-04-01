@@ -49,10 +49,34 @@
         include enable-php.conf;
 
         #access_log  logs/host.access.log  main;
-        location ^~/projects/{
-            root   /data/var/www/;
-            index index.php index.html index.htm;
-            include enable-php.conf;
+        location  ^~ /projects {
+            rewrite ^/(.*) http://localhost:8082/$1 break;
+        }
+    }
+
+    server {
+        listen 8082;
+        server_name localhost;
+
+        root /data/var/www;
+        index index.php index.html;
+
+        location / {
+            try_files $fastcgi_script_name =404;
+
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /data/var/www/projects$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
         }
     }
     ```

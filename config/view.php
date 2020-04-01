@@ -23,10 +23,10 @@ return [
     // 标签库标签结束标记
     'taglib_end'    => '}',
     // 模板参数替换
-    'tpl_replace_string'    => array(
+    'tpl_replace_string' => [
         '__STATIC__'    => '/static',
         '__CSS__'       => '/static/css',
         '__JS__'        => '/static/js',
         '__IMG__'       => '/static/image',
-    )
+    ]
 ];

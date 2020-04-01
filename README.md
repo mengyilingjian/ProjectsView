@@ -50,7 +50,7 @@
 
         #access_log  logs/host.access.log  main;
         location  ^~ /projects {
-            rewrite ^/(.*) http://localhost:8082/$1 break;
+            rewrite ^/(.*) http://$host:8082/$1 break;
         }
     }
 
